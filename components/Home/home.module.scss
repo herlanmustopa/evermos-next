@@ -1,17 +1,9 @@
-// home.module.scss
-
 $primary-color: #ff3d00;
 $secondary-color: #333;
 $highlight-color: #e74c3c;
 $background-color: #f5f5f5;
-$border-radius: 10px;
-
-.home {
-  padding: 2rem;
-  color: $secondary-color;
-  padding-top: 60px;
-  padding-bottom: 100px;
-}
+$border-radius: 12px;
+$shadow-color: rgba(0, 0, 0, 0.1);
 
 .hero {
   display: flex;
@@ -20,18 +12,25 @@ $border-radius: 10px;
   padding: 2rem;
   background-color: #fff;
   border-radius: $border-radius;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px $shadow-color;
   overflow: hidden;
+  max-width: 1200px;
+  margin: 2rem auto;
+  margin-top: 100px;
 
   .videoThumbnail {
     position: relative;
-    width: 60%;
+    flex: 1;
+    min-width: 300px;
+    border-radius: $border-radius;
+    overflow: hidden;
 
     img {
       width: 100%;
+      height: auto;
       border-radius: $border-radius;
       transition: transform 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 8px $shadow-color;
     }
 
     &:hover img {
@@ -47,7 +46,7 @@ $border-radius: 10px;
       padding: 0.5rem 1rem;
       border: none;
       border-radius: 20px;
-      font-size: 1rem;
+      font-size: 0.9rem;
       cursor: pointer;
       transition: background-color 0.3s ease;
 
@@ -58,12 +57,15 @@ $border-radius: 10px;
   }
 
   .heroText {
-    width: 40%;
+    flex: 1;
+    padding: 1rem 0;
 
     h1 {
       font-size: 2rem;
       font-weight: bold;
       margin-bottom: 1rem;
+      line-height: 1.2;
+      color: $secondary-color;
 
       .highlight {
         color: $highlight-color;
@@ -74,11 +76,13 @@ $border-radius: 10px;
       font-size: 1rem;
       line-height: 1.6;
       margin-bottom: 1.5rem;
+      color: #555;
     }
 
     .heroButtons {
       display: flex;
       gap: 1rem;
+      flex-wrap: wrap;
 
       .readMoreButton,
       .orderNowButton {
@@ -114,29 +118,37 @@ $border-radius: 10px;
 }
 
 .specialDishes {
-  margin-top: 2rem;
+  margin-top: 3rem;
+  padding: 2rem;
+  //   background-color: #fff;
+  border-radius: $border-radius;
+  //   box-shadow: 0 4px 12px $shadow-color;
+  text-align: center;
 
   h2 {
     color: $highlight-color;
     font-weight: bold;
     font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   h3 {
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
+    color: $secondary-color;
   }
 
   .dishCards {
-    display: flex;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
 
     .dishCard {
-      background-color: #fff;
+      //   background-color: #fff;
       border-radius: $border-radius;
-      padding: 1rem;
-      width: 100%;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px $shadow-color;
       text-align: center;
       transition: transform 0.3s ease;
 
@@ -146,50 +158,58 @@ $border-radius: 10px;
 
       img {
         border-radius: 50%;
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        display: block;
       }
 
       h4 {
-        font-size: 1rem;
+        font-size: 1.1rem;
         font-weight: bold;
-        margin-top: 0.5rem;
+        margin-top: 0.75rem;
+        color: $secondary-color;
       }
 
       p {
-        font-size: 0.875rem;
+        font-size: 0.9rem;
         color: #777;
+        margin-top: 0.5rem;
+        line-height: 1.4;
       }
 
       .dishPrice {
         color: $primary-color;
-        font-size: 1.2rem;
-        margin-top: 0.5rem;
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-top: 0.75rem;
       }
     }
   }
 }
 
 .popularCategories {
-  margin-top: 2rem;
+  margin-top: 3rem;
+  padding: 2rem;
 
   h2 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    text-align: center;
   }
 
   .categories {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1rem;
-    flex-wrap: wrap;
+    padding: 1rem;
 
     .categoryCard {
-      background-color: #fff;
+      //   background-color: #fff;
       border-radius: $border-radius;
-      padding: 1rem;
+      padding: 1.5rem;
       text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 180px;
+      box-shadow: 0 4px 12px $shadow-color;
       cursor: pointer;
       transition: transform 0.3s ease;
 
@@ -207,5 +227,50 @@ $border-radius: 10px;
         color: #777;
       }
     }
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .dishCards .dishCard,
+  .categories .categoryCard {
+    flex: 1 1 calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .dishCards,
+  .categories {
+    gap: 1rem;
+  }
+
+  .heroButtons {
+    justify-content: center;
+  }
+
+  .specialDishes h2,
+  .popularCategories h2 {
+    font-size: 1.25rem;
+  }
+
+  .heroText h1 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroText h1 {
+    font-size: 1.5rem;
+  }
+
+  .dishCards .dishCard img,
+  .categories .categoryCard img {
+    width: 60px;
+    height: 60px;
   }
 }
