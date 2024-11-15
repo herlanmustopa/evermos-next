@@ -1,0 +1,24 @@
+.skeletonImage {
+    width: 100%;
+    padding-top: 100%;
+    background-color: #828181;
+    border-radius: 10px;
+}
+
+.skeletonText {
+    height: 20px;
+    background-color: #828181;
+    border-radius: 5px;
+    margin: 10px auto 0; 
+    display: block; 
+    width: 80%;
+}
+
+.skeletonButton {
+    height: 40px;
+    width: 60%;
+    background-color: #b90ef8;
+    border-radius: 5px;
+    margin: 10px auto 0; 
+    display: block; 
+}
