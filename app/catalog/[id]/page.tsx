@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "../../../styles/productDetail.module.scss";
+import styles from "./productDetail.module.scss";
 import {fetchProductById} from "@/core/services/api.services";
 
 interface IProps {

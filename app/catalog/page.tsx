@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/catalog.module.scss";
+import styles from "./catalog.module.scss";
 import ProductList from "./catalogList";
 
 export const metadata = {

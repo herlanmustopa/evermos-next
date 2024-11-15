@@ -3,7 +3,7 @@
 import React, {useState, useEffect} from "react";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "../../styles/catalog.module.scss";
+import styles from "./catalog.module.scss";
 import {fetchProducts} from "@/core/services/api.services";
 import SkeletonCard from "@/components/Skeloton";
 

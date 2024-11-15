@@ -1,0 +1,19 @@
+.page {
+  margin-left: 5rem;
+  margin-right: 5rem;
+
+  @media (min-width: 768px) {
+    margin-left: 6.5rem;
+    margin-right: 6.5rem;
+  }
+
+  @media (min-width: 640px) {
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+
+  @media (min-width: 1024px) {
+    margin-left: 8rem;
+    margin-right: 8rem;
+  }
+}
