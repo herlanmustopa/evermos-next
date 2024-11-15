@@ -2,15 +2,14 @@ import Image from "next/image";
 import styles from "../../../styles/productDetail.module.scss";
 import {fetchProductById} from "@/core/services/api.services";
 
-type Props = {
-  params: {
-    id: number;
-  };
-};
+interface IProps {
+  params: {id: string};
+}
 
-export default async function ProductDetailPage({params: {id}}: Props) {
-  console.log("Productss", id);
+export default async function ProductDetailPage({params}: IProps) {
+  const {id} = params;
   const product = await fetchProductById(id);
+  console.log(id);
 
   if (!product) return <p>Product not found</p>;
 
@@ -30,16 +29,6 @@ export default async function ProductDetailPage({params: {id}}: Props) {
           <h1 className={styles.productName}>{product.title}</h1>
           <p className={styles.productPrice}>${product.price}</p>
           <p className={styles.productDescription}>{product.description}</p>
-          <div className={styles.variants}>
-            <h2>Variants</h2>
-            <div className={styles.variantList}>
-              {/* {product?.map((variant: string) => (
-                <button key={variant} className={styles.variantButton}>
-                  {variant}
-                </button>
-              ))} */}
-            </div>
-          </div>
         </div>
       </div>
     </div>
